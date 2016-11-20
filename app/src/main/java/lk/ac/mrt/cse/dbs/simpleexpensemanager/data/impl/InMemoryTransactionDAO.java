@@ -39,6 +39,7 @@ public class InMemoryTransactionDAO implements TransactionDAO {
     public void logTransaction(Date date, String accountNo, ExpenseType expenseType, double amount) {
         Transaction transaction = new Transaction(date, accountNo, expenseType, amount);
         transactions.add(transaction);
+
     }
 
     @Override

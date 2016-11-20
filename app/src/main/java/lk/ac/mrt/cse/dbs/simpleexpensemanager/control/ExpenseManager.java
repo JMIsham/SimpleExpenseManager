@@ -16,7 +16,11 @@
 
 package lk.ac.mrt.cse.dbs.simpleexpensemanager.control;
 
+import android.util.Log;
+
 import java.io.Serializable;
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -43,6 +47,7 @@ public abstract class ExpenseManager implements Serializable {
      * @return
      */
     public List<String> getAccountNumbersList() {
+        Log.i("Message","inside calling2");
         return accountsHolder.getAccountNumbersList();
     }
 
@@ -76,7 +81,13 @@ public abstract class ExpenseManager implements Serializable {
      * @return
      */
     public List<Transaction> getTransactionLogs() {
-        return transactionsHolder.getPaginatedTransactionLogs(10);
+        try {
+            return transactionsHolder.getPaginatedTransactionLogs(10);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        List lst = new ArrayList<String>();
+        return lst;
     }
 
     /***

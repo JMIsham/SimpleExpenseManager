@@ -18,8 +18,10 @@ package lk.ac.mrt.cse.dbs.simpleexpensemanager.ui;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +63,8 @@ public class ManageExpensesFragment extends Fragment implements View.OnClickList
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.i("Message","inside calling0");
+
         View rootView = inflater.inflate(R.layout.fragment_manage_expenses, container, false);
         submitButton = (Button) rootView.findViewById(R.id.submit_amount);
         submitButton.setOnClickListener(this);
@@ -71,8 +75,10 @@ public class ManageExpensesFragment extends Fragment implements View.OnClickList
         ArrayAdapter<String> adapter =
                 null;
         if (currentExpenseManager != null) {
+            Log.i("Message","inside calling");
             adapter = new ArrayAdapter<>(this.getActivity(), R.layout.support_simple_spinner_dropdown_item,
                     currentExpenseManager.getAccountNumbersList());
+
         }
         accountSelector.setAdapter(adapter);
 
